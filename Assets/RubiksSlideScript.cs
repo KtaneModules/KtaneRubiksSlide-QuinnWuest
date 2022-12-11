@@ -409,12 +409,17 @@ public class RubiksSlideScript : MonoBehaviour
     private IEnumerator ProcessTwitchCommand(string command)
     {
         command = command.Trim().ToLowerInvariant();
-        var m = Regex.Match(command, @"^\s*center\s*$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
+        var m = Regex.Match(command, @"^\s*c(ent(er|re))?\s*$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
         if (m.Success)
         {
+            while (_isTransitioning)
+                yield return null;
             yield return null;
+            yield return "solve";
+            if (_stage == 9)
+                yield break;
             CenterSel.OnInteract();
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(2.5f);
             CenterSel.OnInteractEnded();
             yield break;
         }
