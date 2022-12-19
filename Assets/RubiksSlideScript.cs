@@ -403,7 +403,7 @@ public class RubiksSlideScript : MonoBehaviour
     }
 
 #pragma warning disable 0414
-    private readonly string TwithchHelpMessage = "!{0} up right down left clockwise counterclockwise [Shift or rotate the grid.] | !{0} center [View the solution puzzle.] | Movements can be abbreviated to u, r, d, l, cw, ccw.";
+    private readonly string TwitchHelpMessage = "!{0} up right down left clockwise counterclockwise [Shift or rotate the grid.] | !{0} center [View the solution puzzle.] | Movements can be abbreviated to u, r, d, l, cw, ccw.";
 #pragma warning restore 0414
 
     private IEnumerator ProcessTwitchCommand(string command)
