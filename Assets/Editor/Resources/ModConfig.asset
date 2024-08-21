@@ -15,9 +15,8 @@ MonoBehaviour:
   title: Rubik's Slide
   author: Quinn Wuest
   description: "I can get behind the slidin\u2019, but not so much the rotatin\u2019.\n\nManual
-    and Idea by Crazycaleb\nDeveloped by Quinn Wuest\nAudio by GhostSalt, Aero, Quinn
-    Wuest\n\n[url=https://ktane.timwi.de/HTML/Rubik%27s%20Slide.html]Manual HTML[/url]\r\n[url=https://ktane.timwi.de/PDF/Rubik%27s%20Slide.pdf]Manual
-    PDF[/url]"
+    and Idea by Crazycaleb\nDeveloped by Quinn Wuest\nAudio by Aero\n\n[url=https://ktane.timwi.de/HTML/Rubik%27s%20Slide.html]Manual
+    HTML[/url]\r\n[url=https://ktane.timwi.de/PDF/Rubik%27s%20Slide.pdf]Manual PDF[/url]"
   version: 1.0
   outputFolder: build
   previewImage: {fileID: 2800000, guid: b97634af7088d484c936491f080b56e5, type: 3}

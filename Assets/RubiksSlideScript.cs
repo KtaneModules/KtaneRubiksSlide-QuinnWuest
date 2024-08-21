@@ -403,13 +403,13 @@ public class RubiksSlideScript : MonoBehaviour
     }
 
 #pragma warning disable 0414
-    private readonly string TwitchHelpMessage = "!{0} up right down left clockwise counterclockwise [Shift or rotate the grid.] | !{0} center [View the solution puzzle.] | Movements can be abbreviated to u, r, d, l, cw, ccw.";
+    private readonly string TwitchHelpMessage = "!{0} up right down left clockwise counterclockwise [Shift or rotate the grid.] | !{0} middle [View the solution puzzle.] | Movements can be abbreviated to u, r, d, l, c, w.";
 #pragma warning restore 0414
 
     private IEnumerator ProcessTwitchCommand(string command)
     {
         command = command.Trim().ToLowerInvariant();
-        var m = Regex.Match(command, @"^\s*c(ent(er|re))?\s*$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
+        var m = Regex.Match(command, @"^\s*m(iddle)?\s*$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
         if (m.Success)
         {
             while (_isTransitioning)
@@ -423,7 +423,7 @@ public class RubiksSlideScript : MonoBehaviour
             CenterSel.OnInteractEnded();
             yield break;
         }
-        var parameters = command.Split(' ');
+        var parameters = command.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries);
         var list = new List<KMSelectable>();
         for (int i = 0; i < parameters.Length; i++)
         {
@@ -431,34 +431,28 @@ public class RubiksSlideScript : MonoBehaviour
             {
                 case "up":
                 case "u":
-                case "north":
-                case "n":
                     list.Add(ShiftSels[0]);
                     break;
                 case "right":
                 case "r":
-                case "east":
-                case "e":
                     list.Add(ShiftSels[1]);
                     break;
                 case "down":
                 case "d":
-                case "south":
-                case "s":
                     list.Add(ShiftSels[2]);
                     break;
                 case "left":
                 case "l":
-                case "west":
-                case "w":
                     list.Add(ShiftSels[3]);
                     break;
                 case "clockwise":
                 case "cw":
+                case "c":
                     list.Add(RotateSels[0]);
                     break;
                 case "counterclockwise":
                 case "ccw":
+                case "w":
                     list.Add(RotateSels[4]);
                     break;
                 default:
